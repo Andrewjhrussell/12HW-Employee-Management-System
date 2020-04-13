@@ -40,7 +40,7 @@ function createHero(){
  ]
  inquirer.prompt(questions).then(function(userResponse){
      console.log(userResponse)
-     connection.query("INSERT INTO EMPLOYEE(FIRST_Name, last_Name, Role_ID, Managers_ID) VALUES (Sam, Jefferson, 1353, 9929)",[userResponse.firstName, userResponse.lastName, userResponse.RoleID, userResponse.ManagersID],
+     connection.query("INSERT INTO EMPLOYEE(FIRST_Name, Last_Name, Role_ID, Managers_ID) VALUES (Sam, Jefferson, 1353, 9929)",[userResponse.firstName, userResponse.lastName, userResponse.RoleID, userResponse.ManagersID],
         function (err, res) {
             if(err) throw err
             console.log(res)
@@ -51,9 +51,9 @@ function createHero(){
 }
 
 function start() {
-     connection.query('SELECT * FROM employee_db.employee', function(err, employee){
+     connection.query('SELECT * FROM EMPLOYEETRACKER_db.employee', function(err, employee){
         if(err) throw err;
-        console.table(employee)
+        console.table(employeetracker)
         createEmployee()
     })
 }
