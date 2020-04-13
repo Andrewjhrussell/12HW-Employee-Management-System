@@ -2,16 +2,14 @@ var mysql = require("mysql");
 var inquirer = require("inquirer")
 var connection = mysql.createConnection({
   host: "localhost",
-
-  // Your port; if not 8080
-  port: 8080,
+    port:3306,
 
   // Your username
   user: "root",
 
   // Your password
   password: "Kingman1",
-  database: "EMPLOYEETRACKER_DB"
+  database: "employeetracker_db"
 });
 connection.connect(function(err) {
     if (err) throw err;
@@ -20,7 +18,7 @@ connection.connect(function(err) {
   });
 
 
-function createHero(){
+function createEmployee(){
  var questions =[
      {
          type:"input",
@@ -51,9 +49,10 @@ function createHero(){
 }
 
 function start() {
-     connection.query('SELECT * FROM EMPLOYEETRACKER_db.employee', function(err, employee){
+     connection.query('SELECT FIRST_NAME FROM employees', function(err, res){
         if(err) throw err;
-        console.table(employeetracker)
+        console.log(res, '<====')
+        console.table(res)
         createEmployee()
     })
 }
