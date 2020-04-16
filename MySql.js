@@ -117,4 +117,10 @@ function viewRole() {
     start()
   })
 }
-
+function viewRole() {
+  connection.query('SELECT * FROM LAST NAME', function(err, res){
+    if(err) throw err;
+    console.table(res);
+    start()
+  })
+}
