@@ -103,24 +103,14 @@ function viewRole() {
      start()
  })
 }
+ 
 function viewRole() {
-  connection.query('SELECT * FROM MANAGER', function(err, res){
+  connection.query('SELECT * FROM department', function(err, res){
     if(err) throw err;
     console.table(res);
     start()
   })
 }
-function viewRole() {
-  connection.query('SELECT * FROM FIRST NAME', function(err, res){
-    if(err) throw err;
-    console.table(res);
-    start()
-  })
-}
-function viewRole() {
-  connection.query('SELECT * FROM LAST NAME', function(err, res){
-    if(err) throw err;
-    console.table(res);
-    start()
-  })
-}
+
+
+
